@@ -45,21 +45,21 @@ driver.delete_all_cookies()
 
 # Constants
 
-DEFAULT_TEXT = "A Asset Imóveis tem convênio com os maiores Bancos do País para aprovação e condução do seu crédito " \
+DEFAULT_TEXT = "A Empresa tem convênio com os maiores Bancos do País para aprovação e condução do seu crédito " \
                "imobiliário, sem custo pelo serviço."
 TODAY = datetime.strftime(datetime.today(), "%d/%m/%Y")
 
 # Actions
 
 # Credentials
-servicename = "AssetLogin"
-username = "asset@assetimoveis.com"
+servicename = "EmpresaLogin"
+username = "empresa@Empresa.com"
 password = keyring.get_password(servicename, username)
 
 
 def login(web_driver, login_user, login_password):
-    print("\t\tOpening Canal Pro...", file=f)
-    web_driver.get("https://canalpro.grupozap.com/")
+    print("\t\tOpening Website...", file=f)
+    web_driver.get("https://comercial.website.com/")
     web_driver.maximize_window()
     print("\t\tOpened!", file=f)
     web_driver.find_element(By.NAME, "email").send_keys(login_user)
@@ -272,7 +272,7 @@ def navigate_to_page(web_driver, page_number):
     page = str(page_number)
     # pagination = web_driver.find_element(By.XPATH, "//*[@id='app']/div[2]/div[2]/div[1]/section/div[3]/ul/li[7]/button")
     # web_driver.execute_script("arguments[0].click();", pagination)]
-    web_driver.get("https://canalpro.grupozap.com/ZAP_OLX/0/listings?pageSize=10&pageNumber=" + page)
+    web_driver.get("https://comercial.website.com/ZAP_OLX/0/listings?pageSize=10&pageNumber=" + page)
     try:
         if web_driver.find_element(By.XPATH, "//*[@id='privacy-term-alert']/button"):
             print("\t\tFound Privacy Term Alert", file=f)
@@ -472,7 +472,7 @@ def set_ads_per_page(web_driver, amount):
 
 if __name__ == '__main__':
     # STARTING PROCESS ###########################################
-    print("===============Robo CanalPro --- v2===============", file=f)
+    print("===============Robo Empresa --- v2===============", file=f)
     print("===============Session --- " + now.strftime("%Y%m%d%H%M%S") + "===============", file=f)
     print("===============START PROCESS===============", file=f)
 
